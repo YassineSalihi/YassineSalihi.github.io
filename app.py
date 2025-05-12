@@ -1,10 +1,18 @@
+import requests
 import streamlit as st
+from streamlit_lottie import st_lottie
 
 # emojis from : https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Yassine Salihi", page_icon="🥳", layout="wide")
 
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
 # ------- Load assets --------------
-lottie_coding = "https://lottie.host/5916a905-a131-4a93-a6e2-121e9f0de580/2Q3SJEITJu.lottie"
+lottie_coding = load_lottieurl("https://lottie.host/c1ea0a5e-5fe3-40ab-9e35-71b84a2c9be8/ZhRm4gsjJ8.json")
 
 
 # ------- HEADER SECTION ------------
@@ -35,6 +43,7 @@ with st.container():
         st.write("[Let's connect >](https://www.linkedin.com/in/yassine-salihi-2b2141359/)")
 
 # I am using LottieFiles : JSON based animation file format --> small files, work on any device
-    with right_column:
+    with right_column: # insert the animation here.
+        st_lottie(lottie_coding, height=400, key="teaching") # optional height and key
 
 

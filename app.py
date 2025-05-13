@@ -14,7 +14,8 @@ def load_lottieurl(url):
 
 # ------- Load assets --------------
 lottie_coding = load_lottieurl("https://lottie.host/c1ea0a5e-5fe3-40ab-9e35-71b84a2c9be8/ZhRm4gsjJ8.json")
-img_about_me = Image.open("images/leme.jpeg")
+img_about_me = Image.open("images/app_pic.png") # not a very good name
+img_java_certif = Image.open("images/java_certif.png")
 
 # ------- HEADER SECTION ------------
 with st.container():
@@ -53,6 +54,7 @@ with st.container():
     st.write("---")
     st.header("My projects")
     st.write("##")
+    st.subheader("Project #1")
     image_column, text_column = st.columns((1, 2))
     with image_column:
         #insert image
@@ -70,4 +72,27 @@ with st.container():
 
         st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/app_calcul_moyenne)")
 
+
+with st.container():
+    #st.write("---")
+    #st.header("My projects")
+    st.write("##")
+    st.subheader("Project #2")
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        #insert image
+        st.image(img_java_certif)
+    with text_column:
+        st.subheader("Not well designed but did the job")
+        st.write(
+            '''
+            My goal was to create an app for Certification management.
+            So it creates adds, deletes, and list the existing certifications.
+            A chart by JFreeChart to make it EZ to read statistiques.
+            And it's a JAVA SWING project!!!
+
+            '''
+        )
+
+        st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/Gestion-des-cerifications)")
 

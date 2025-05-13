@@ -47,3 +47,25 @@ with st.container():
         st_lottie(lottie_coding, height=400, key="teaching") # optional height and key
 
 
+# --------------- Projects ----------------
+with st.container():
+    st.write("---")
+    st.header("My projects")
+    st.write("##")
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        #insert image
+    with text_column:
+        st.subheader("From a student book : ")
+        st.write(
+            '''
+            I found out that there is a student book (for private school) used by my sibling
+            and I Liked an exercice about the average calculation, but what I liked more is 
+            using tkinter biblio which was new, fun and challenging a bit.
+
+            '''
+        )
+
+        st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/app_calcul_moyenne)")
+
+

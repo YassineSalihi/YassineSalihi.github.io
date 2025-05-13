@@ -1,3 +1,4 @@
+from PIL import Image
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
@@ -13,7 +14,7 @@ def load_lottieurl(url):
 
 # ------- Load assets --------------
 lottie_coding = load_lottieurl("https://lottie.host/c1ea0a5e-5fe3-40ab-9e35-71b84a2c9be8/ZhRm4gsjJ8.json")
-
+img_about_me = Image.open("images/leme.jpeg")
 
 # ------- HEADER SECTION ------------
 with st.container():
@@ -55,6 +56,7 @@ with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
         #insert image
+        st.image(img_about_me)
     with text_column:
         st.subheader("From a student book : ")
         st.write(

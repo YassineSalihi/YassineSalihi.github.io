@@ -76,7 +76,7 @@ with st.container():
 with st.container():
     #st.write("---")
     #st.header("My projects")
-    st.write("##")
+    #st.write("##")
     st.subheader("Project #2")
     image_column, text_column = st.columns((1, 2))
     with image_column:
@@ -95,4 +95,36 @@ with st.container():
         )
 
         st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/Gestion-des-cerifications)")
+
+
+# ------------------------- CONTACT ------------------------
+with st.container():
+    st.write("---")
+    st.header("Get in touch with me 📲")
+    st.write("##")
+
+    # changed to my email @
+    contact_form = """
+    <form action="https://formsubmit.co/salihiy0@gmail.com" method="POST">
+     <input type="hidden" name="_captcha" value=false>
+     <input type="text" name="name" placeholder="Your name" required>
+     <input type="email" name="email" placeholder="Your email" required>
+     <textarea name="message" placeholder="Your message here" require></textarea>
+     <button type="submit">Send</button>
+    </form> 
+    
+    """
+
+    left_column, right_column = st.columns(2)
+    with left_column:
+        st.markdown(contact_form, unsafe_allow_html=True)
+    with right_column:
+        st.empty()
+
+
+
+
+
+
+
 

@@ -27,8 +27,8 @@ img_java_certif = Image.open("images/java_certif.png")
 # ------- HEADER SECTION ------------
 with st.container():
     st.subheader("Hi! I am SALIHI Yassine 👋 . And this is my website")
-    st.title("futur teacher and specialist in IT from Morocco.")
-    st.write("I am an ambitious guy, I like to discover new thing, and I want to make the educational system a lot effective and better")
+    st.title("future teacher and specialist in IT from Morocco.")
+    st.write("I am an ambitious guy, I like to discover new thing, and I want to make the educational system a lot more effective and better")
     # link to my blog : I dont have one yet hehe
     st.write("[Learn more >](https://github.com/YassineSalihi)")
 
@@ -43,10 +43,10 @@ with st.container():
         st.write("##")
         st.write(
             '''
-            I study at ENS-M (Ecole Normale Superieure Marrakech)
-            - I always test new things.
-            - I am now starting making tutos about some exercices.
-            - I love martials art, hiking and playing video games (It was a long time since I played a game,I missed it haha)
+            I study at ENS-M (École Normale Supérieure de Marrakech).
+            - I'm always exploring and testing new things.
+            - I'm now starting to make tutorials on some exercises.
+            - I love martial arts, hiking, and playing video games (though it's been a while since I last played—I've missed it, haha).
 '''
         )
         st.write("[Let's connect >](https://www.linkedin.com/in/yassine-salihi-2b2141359/)")
@@ -70,9 +70,10 @@ with st.container():
         st.subheader("From a student book : ")
         st.write(
             '''
-            I found out that there is a student book (for private school) used by my sibling
-            and I Liked an exercice about the average calculation, but what I liked more is 
-            using tkinter biblio which was new, fun and challenging a bit.
+            I found out that my sibling's private school uses a student book, 
+            and I came across an exercise on average calculation that I really liked. 
+            What I enjoyed even more was using the Tkinter library—it was new to me, fun, 
+            and a bit challenging.
 
             '''
         )
@@ -90,13 +91,13 @@ with st.container():
         #insert image
         st.image(img_java_certif)
     with text_column:
-        st.subheader("Not well designed but did the job")
+        st.subheader("Not the best design, but it got the job done! ")
         st.write(
             '''
-            My goal was to create an app for Certification management.
-            So it creates adds, deletes, and list the existing certifications.
-            A chart by JFreeChart to make it EZ to read statistiques.
-            And it's a JAVA SWING project!!!
+            My goal was to create an app for certification management.
+            It allows you to create, add, delete, and list existing certifications.
+            I also used JFreeChart to make statistics easier to read.
+            And yes — it’s a Java Swing project!
 
             '''
         )

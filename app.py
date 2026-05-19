@@ -20,15 +20,15 @@ def local_css(file_name):
 local_css("style/style.css")
 
 # ------- Load assets --------------
-lottie_coding = load_lottieurl("https://lottie.host/c1ea0a5e-5fe3-40ab-9e35-71b84a2c9be8/ZhRm4gsjJ8.json")
+lottie_coding = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_tno6cg2w.json")
 img_about_me = Image.open("images/app_pic.png") # not a very good name
 img_java_certif = Image.open("images/java_certif.png")
 
 # ------- HEADER SECTION ------------
 with st.container():
     st.subheader("Hi! I am SALIHI Yassine 👋 . And this is my website")
-    st.title("future teacher and specialist in IT from Morocco.")
-    st.write("I am an ambitious guy, I like to discover new thing, and I want to make the educational system a lot more effective and better")
+    st.title("A Cybersecurity student @EMSI.")
+    st.write("I'm currently looking for opportunities. I love to learn and contribute in any and every possible way.")
     # link to my blog : I dont have one yet hehe
     st.write("[Learn more >](https://github.com/YassineSalihi)")
 
@@ -43,13 +43,14 @@ with st.container():
         st.write("##")
         st.write(
             '''
-            I study at ENS-M (École Normale Supérieure de Marrakech).
+            - I studied at ENS-M (École Normale Supérieure de Marrakech).
+            - I am currently studying at EMSI (Ecole Marocaine des Sciences de l'Ingénieur)
             - I'm always exploring and testing new things.
             - I'm now starting to make tutorials on some exercises.
             - I love martial arts, hiking, and playing video games (though it's been a while since I last played—I've missed it, haha).
 '''
         )
-        st.write("[Let's connect >](https://www.linkedin.com/in/yassine-salihi-2b2141359/)")
+        st.write("[Let's connect >](https://twitter.com/Salihi_Yas)")
 
 # I am using LottieFiles : JSON based animation file format --> small files, work on any device
     with right_column: # insert the animation here.
@@ -104,6 +105,50 @@ with st.container():
 
         st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/Gestion-des-cerifications)")
 
+with st.container():
+    #st.write("---")
+    #st.header("My projects")
+    #st.write("##")
+    st.subheader("Project #2")
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        #insert image
+        st.image(img_java_certif)
+    with text_column:
+        st.subheader("Not the best design, but it got the job done! ")
+        st.write(
+            '''
+            My goal was to create an app for certification management.
+            It allows you to create, add, delete, and list existing certifications.
+            I also used JFreeChart to make statistics easier to read.
+            And yes — it’s a Java Swing project!
+
+            '''
+        )
+
+        st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/Gestion-des-cerifications)")
+with st.container():
+    #st.write("---")
+    #st.header("My projects")
+    #st.write("##")
+    st.subheader("Project #2")
+    image_column, text_column = st.columns((1, 2))
+    with image_column:
+        #insert image
+        st.image(img_java_certif)
+    with text_column:
+        st.subheader("Not the best design, but it got the job done! ")
+        st.write(
+            '''
+            My goal was to create an app for certification management.
+            It allows you to create, add, delete, and list existing certifications.
+            I also used JFreeChart to make statistics easier to read.
+            And yes — it’s a Java Swing project!
+
+            '''
+        )
+
+        st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/Gestion-des-cerifications)")
 
 # ------------------------- CONTACT ------------------------
 with st.container():

@@ -23,6 +23,7 @@ local_css("style/style.css")
 lottie_coding = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_tno6cg2w.json")
 img_about_me = Image.open("images/app_pic.png") # not a very good name
 img_java_certif = Image.open("images/java_certif.png")
+img_java_certif = Image.open("images/java_certif.png")
 
 # ------- HEADER SECTION ------------
 with st.container():
@@ -109,20 +110,19 @@ with st.container():
     #st.write("---")
     #st.header("My projects")
     #st.write("##")
-    st.subheader("Project #2")
+    st.subheader("Project #3")
     image_column, text_column = st.columns((1, 2))
     with image_column:
         #insert image
         st.image(img_java_certif)
     with text_column:
-        st.subheader("Not the best design, but it got the job done! ")
+        st.subheader("and here ??")
         st.write(
             '''
-            My goal was to create an app for certification management.
-            It allows you to create, add, delete, and list existing certifications.
-            I also used JFreeChart to make statistics easier to read.
-            And yes — it’s a Java Swing project!
-
+            Lorem ipsum blablablablablablablablablablablablablablablab
+            lablablablablablablablablablablablablablablablablablablabl
+            Lorem ipsum blablablablablablablablablablablablablablablab
+            lablablablablablablablablablablablablablablablablablablabl
             '''
         )
 
@@ -131,20 +131,19 @@ with st.container():
     #st.write("---")
     #st.header("My projects")
     #st.write("##")
-    st.subheader("Project #2")
+    st.subheader("Project #4")
     image_column, text_column = st.columns((1, 2))
     with image_column:
         #insert image
         st.image(img_java_certif)
     with text_column:
-        st.subheader("Not the best design, but it got the job done! ")
+        st.subheader("Somthing here")
         st.write(
             '''
-            My goal was to create an app for certification management.
-            It allows you to create, add, delete, and list existing certifications.
-            I also used JFreeChart to make statistics easier to read.
-            And yes — it’s a Java Swing project!
-
+            Lorem ipsum blablablablablablablablablablablablablablablab
+            lablablablablablablablablablablablablablablablablablablabl
+            Lorem ipsum blablablablablablablablablablablablablablablab
+            lablablablablablablablablablablablablablablablablablablabl
             '''
         )
 

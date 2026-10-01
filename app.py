@@ -24,6 +24,7 @@ lottie_coding = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_tn
 img_about_me = Image.open("images/app_pic.png") # not a very good name
 img_java_certif = Image.open("images/java_certif.png")
 noc_pic = Image.open("images/noc_pic.png")
+replica_pic = Image.open("images/replica_pic.png")
 
 # ------- HEADER SECTION ------------
 with st.container():
@@ -133,19 +134,16 @@ with st.container():
     image_column, text_column = st.columns((1, 2))
     with image_column:
         #insert image
-        st.image(img_java_certif)
+        st.image(replica_pic)
     with text_column:
-        st.subheader("Somthing here")
+        st.subheader("I replicate RAAAHH")
         st.write(
             '''
-            Lorem ipsum blablablablablablablablablablablablablablablab
-            lablablablablablablablablablablablablablablablablablablabl
-            Lorem ipsum blablablablablablablablablablablablablablablab
-            lablablablablablablablablablablablablablablablablablablabl
+            I made a MongoDB Replica Set for fun.
             '''
         )
 
-        st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/Gestion-des-cerifications)")
+        st.markdown("[The repository of this project : ](https://github.com/YassineSalihi/replicaSet)")
 
 # ------------------------- CONTACT ------------------------
 with st.container():

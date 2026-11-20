@@ -1,378 +1,67 @@
+<!-- Original author :  Ahmed Lekssays  -->
+<!-- Modified by : Yassine Salihi -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yassine Salihi</title>
+    <meta name="description" content="Yassine Salihi, élève ingénieur en Informatique et Réseaux : cybersécurité, GRC et Cloud/DevSecOps. À la recherche d'un stage PFE à partir du 1er février 2027.">
+    <title>Yassine Salihi | Cybersécurité, GRC & Cloud/DevSecOps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
         :root {
-            --bg-dark: #1a1b26;
-            --bg-terminal: #2E3440;
-            --text-primary: #D8DEE9;
-            --text-green: #A3BE8C;
-            --text-blue: #88C0D0;
-            --text-yellow: #EBCB8B;
-            --text-red: #BF616A;
-            --text-purple: #B48EAD;
-            --text-gray: #4C566A;
+            --bg-dark: #1a1b26; --bg-terminal: #2E3440; --text-primary: #D8DEE9; --text-green: #A3BE8C;
+            --text-blue: #88C0D0; --text-yellow: #EBCB8B; --text-red: #BF616A; --text-purple: #B48EAD; --text-gray: #4C566A;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-            line-height: 1.6;
-        }
-
-        #terminal {
-            width: 100%;
-            max-width: 900px;
-            height: 90vh;
-            background-color: var(--bg-terminal);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 0.5s ease-out forwards;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .terminal-header {
-            background-color: #353b4a;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            border-radius: 8px 8px 0 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .terminal-buttons {
-            display: flex;
-            gap: 8px;
-            margin-right: 15px;
-        }
-
-        .terminal-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .terminal-button:hover {
-            transform: scale(1.1);
-        }
-
-        .terminal-tabs {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            padding: 0 15px;
-            overflow-x: auto;
-        }
-
-        .terminal-tab {
-            padding: 5px 10px;
-            border: 1px solid var(--text-green);
-            border-radius: 4px;
-            color: var(--text-green);
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .terminal-tab.active {
-            background-color: var(--text-green);
-            color: var(--bg-dark);
-        }
-
-        .terminal-tab:hover:not(.active) {
-            background-color: rgba(163, 190, 140, 0.2);
-        }
-
-        .close {
-            background-color: var(--text-red);
-        }
-
-        .minimize {
-            background-color: var(--text-yellow);
-        }
-
-        .maximize {
-            background-color: var(--text-green);
-        }
-
-        .terminal-title {
-            color: var(--text-primary);
-            font-size: 14px;
-            opacity: 0.8;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .terminal-content {
-            padding: 15px;
-            height: calc(100% - 95px);
-            overflow-y: auto;
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-
-        .welcome-message {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .ascii-art {
-            color: var(--text-green);
-            font-family: monospace;
-            white-space: pre;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-            border-color: var(--text-blue);
-        }
-
-        .contact-item a {
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--text-blue);
-        }
-
-        .contact-item i {
-            color: var(--text-yellow);
-            width: 20px;
-            text-align: center;
-        }
-
-        .section-header {
-            color: var(--text-yellow);
-            margin: 20px 0 10px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1.1em;
-        }
-
-        .publication-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            padding: 15px;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .publication-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--text-blue);
-        }
-
-        .publication-year {
-            color: var(--text-yellow);
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .publication-title {
-            color: var(--text-primary);
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .publication-authors {
-            color: var(--text-blue);
-            font-size: 0.9em;
-            margin-bottom: 5px;
-        }
-
-        .publication-venue {
-            color: var(--text-green);
-            font-size: 0.9em;
-        }
-
-        .command-line {
-            display: flex;
-            align-items: center;
-            margin: 20px 0 10px;
-            opacity: 0;
-            animation: fadeIn 0.3s ease-out forwards;
-        }
-
-        .prompt {
-            color: var(--text-green);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .prompt span {
-            color: var(--text-blue);
-        }
-
-        .cursor {
-            width: 8px;
-            height: 16px;
-            background-color: var(--text-primary);
-            margin-left: 2px;
-            animation: blink 1s infinite;
-        }
-
-        .output {
-            margin: 10px 0;
-            padding: 10px;
-            white-space: pre-wrap;
-            line-height: 1.5;
-            opacity: 0;
-            animation: fadeIn 0.3s ease-out forwards;
-            color: var(--text-primary);
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-terminal);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--text-gray);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-blue);
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-right: 5px;
-            background-color: var(--text-gray);
-            color: var(--text-primary);
-        }
-
-        .service-section {
-            margin-bottom: 20px;
-        }
-
-        .service-item {
-            margin: 5px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .service-item::before {
-            content: "•";
-            position: absolute;
-            left: 5px;
-            color: var(--text-blue);
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'JetBrains Mono', 'Courier New', monospace; }
+        body { background-color: var(--bg-dark); color: var(--text-primary); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 10px; line-height: 1.6; }
+        #terminal { width: 100%; max-width: 900px; height: 90vh; background-color: var(--bg-terminal); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.3); overflow: hidden; opacity: 0; animation: fadeIn .5s ease-out forwards; display: flex; flex-direction: column; }
+        .terminal-header { background-color: #353b4a; padding: 10px; display: flex; align-items: center; border-radius: 8px 8px 0 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+        .terminal-buttons { display: flex; gap: 8px; margin-right: 15px; }
+        .terminal-button { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; transition: transform .2s ease; }
+        .terminal-button:hover { transform: scale(1.1); }
+        .terminal-tabs { display: flex; gap: 10px; margin-top: 10px; padding: 0 15px; overflow-x: auto; }
+        .terminal-tab { padding: 5px 10px; border: 1px solid var(--text-green); border-radius: 4px; color: var(--text-green); background: transparent; cursor: pointer; transition: all .3s ease; white-space: nowrap; }
+        .terminal-tab.active { background-color: var(--text-green); color: var(--bg-dark); }
+        .terminal-tab:hover:not(.active) { background-color: rgba(163,190,140,.2); }
+        .close { background-color: var(--text-red); } .minimize { background-color: var(--text-yellow); } .maximize { background-color: var(--text-green); }
+        .terminal-title { color: var(--text-primary); font-size: 14px; opacity: .8; flex-grow: 1; text-align: center; }
+        .terminal-content { padding: 15px; height: calc(100% - 95px); overflow-y: auto; background-color: rgba(0,0,0,.2); }
+        .ascii-art { color: var(--text-green); font-family: monospace; white-space: pre; line-height: 1.2; margin-bottom: 20px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; margin: 20px 0; }
+        .contact-item { display: flex; align-items: center; gap: 10px; padding: 10px; background-color: rgba(255,255,255,.05); border-radius: 4px; border: 1px solid rgba(255,255,255,.1); transition: all .3s ease; }
+        .contact-item:hover { transform: translateY(-2px); border-color: var(--text-blue); }
+        .contact-item a { color: var(--text-primary); text-decoration: none; transition: color .3s ease; }
+        .contact-item a:hover { color: var(--text-blue); }
+        .contact-item i { color: var(--text-yellow); width: 20px; text-align: center; }
+        .section-header { color: var(--text-yellow); margin: 20px 0 10px; padding-bottom: 5px; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 1.1em; }
+        .publication-card { background-color: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 15px; margin-bottom: 15px; transition: all .3s ease; }
+        .publication-card:hover { transform: translateY(-2px); border-color: var(--text-blue); }
+        .publication-year { color: var(--text-yellow); font-size: .9em; margin-bottom: 5px; }
+        .publication-title { color: var(--text-primary); margin-bottom: 5px; font-weight: bold; }
+        .publication-authors { color: var(--text-blue); font-size: .9em; margin-bottom: 5px; }
+        .publication-venue { color: var(--text-green); font-size: .9em; }
+        .command-line { display: flex; align-items: center; margin: 20px 0 10px; opacity: 0; animation: fadeIn .3s ease-out forwards; }
+        .prompt { color: var(--text-green); display: flex; align-items: center; gap: 5px; }
+        .prompt span { color: var(--text-blue); }
+        .output { margin: 10px 0; padding: 10px; white-space: pre-wrap; line-height: 1.5; opacity: 0; animation: fadeIn .3s ease-out forwards; color: var(--text-primary); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg-terminal); }
+        ::-webkit-scrollbar-thumb { background: var(--text-gray); border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: var(--text-blue); }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .8em; margin-right: 5px; margin-top: 4px; background-color: var(--text-gray); color: var(--text-primary); }
         @media (max-width: 768px) {
-            .terminal-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .terminal-buttons {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-
-            .terminal-title {
-                font-size: 12px;
-            }
-
-            .terminal-tab {
-                padding: 5px 8px;
-                font-size: 12px;
-            }
-
-            .terminal-content {
-                padding: 10px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .publication-card {
-                padding: 10px;
-            }
-
-            .publication-year,
-            .publication-title,
-            .publication-authors,
-            .publication-venue {
-                font-size: 0.8em;
-            }
+            .terminal-header { flex-direction: column; align-items: flex-start; }
+            .terminal-buttons { margin-right: 0; margin-bottom: 10px; }
+            .terminal-title { font-size: 12px; }
+            .terminal-tab { padding: 5px 8px; font-size: 12px; }
+            .terminal-content { padding: 10px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .publication-card { padding: 10px; }
+            .publication-year, .publication-title, .publication-authors, .publication-venue { font-size: .8em; }
         }
     </style>
 </head>
@@ -385,152 +74,196 @@
                 <span class="terminal-button minimize"></span>
                 <span class="terminal-button maximize"></span>
             </div>
-            <div class="terminal-title">user@SALIHI.com</div>
+            <div class="terminal-title">yassine@portfolio</div>
         </div>
         <div class="terminal-tabs">
-            <button class="terminal-tab active" onclick="switchTab('home')">./home</button>
-            <button class="terminal-tab" onclick="switchTab('research')">./research</button>
-            <button class="terminal-tab" onclick="switchTab('initiatives')">./initiatives</button>
+            <button class="terminal-tab active" onclick="switchTab('home', this)">./accueil</button>
+            <button class="terminal-tab" onclick="switchTab('projets', this)">./projets</button>
+            <button class="terminal-tab" onclick="switchTab('initiatives', this)">./initiatives</button>
         </div>
         <div class="terminal-content" id="terminal-content"></div>
     </div>
 
     <script>
+        const projects = [
+            {
+                year: "PFE · SRM-MS",
+                type: "Sécurité réseau",
+                title: "Architecture de sécurité réseau segmentée avec FortiGate",
+                authors: "Yassine Salihi, Razane Zouine · Encadrant : M. Tarik",
+                venue: "FortiGate-VM64 · Lab VMware à 3 zones (LAN / LAN2 / DMZ) · IPS, Web Filter et File Filter · Simulation d'attaques avec nmap / nikto (injections SQL et XSS bloquées) · Rapport LaTeX"
+            },
+            {
+                year: "PFE · ENS Marrakech · 2025",
+                type: "Systèmes embarqués",
+                title: "Conception et mise en œuvre d'un système intelligent de gestion des absences",
+                authors: "Licence en informatique · ENS Marrakech",
+                venue: "Application web d'administration · application mobile Android (Java) · dispositif embarqué Raspberry Pi · double vérification de présence : QR code étudiant (CNE) + comptage des visages (OpenCV, Python), avec fenêtre de pointage configurable"
+            },
+            {
+                year: "Mai 2026",
+                type: "Lab réseau",
+                title: "VPN tolérant au NAT et au filtrage (Containerlab)",
+                authors: "Binôme avec Razane Zouine · SoftEther v4.43",
+                venue: "Topologie client / pare-feu / serveur · trois scénarios de filtrage : liste blanche de ports (nftables), DPI par correspondance de chaînes (iptables), blocage total · bascule automatique du tunnel vers DNS · analyse et contre-mesures",
+                link: "https://github.com/YassineSalihi/tunnel-containerlab"
+            },
+            {
+                type: "Cryptographie",
+                title: "chat0 : messagerie P2P chiffrée de bout en bout",
+                authors: "Projet d'équipe (4 étudiants) · Go / Wails",
+                venue: "X25519 · AES-256-GCM · signatures Ed25519 · routage en oignon à 3 sauts · résistance aux attaques Sybil par preuve de travail · simulation de censure",
+                link: "https://github.com/YassineSalihi/V-chat-O"
+            },
+            {
+                type: "Sécurité mobile",
+                title: "Rétro-ingénierie Android et instrumentation avec Frida",
+                authors: "OWASP UnCrackable niveaux 1 et 3",
+                venue: "apktool · JADX · patch smali · Frida (contournement de la détection root, hooks natifs, contournement du SSL pinning avec ZAP)"
+            },
+            {
+                type: "Supervision",
+                title: "Supervision NOC avec Zabbix",
+                authors: "Docker · Zabbix · MySQL · Nginx · SNMP v2c",
+                venue: "Stack de supervision réseau centralisée pour centre d'exploitation (NOC) : KPI du serveur Nginx cible intégrés, tableau de bord global en cours",
+                link: "https://github.com/YassineSalihi/NOC-u"
+            },
+            {
+                type: "IA et sécurité",
+                title: "Pipeline de détection d'intrusion enrichi par l'IA",
+                authors: "Python · scikit-learn · Suricata",
+                venue: "Classification d'alertes à partir des logs Suricata avec un Random Forest ; expérimentations sur CICIDS2017 et sur les malwares Android (CICMalDroid)"
+            },
+            {
+                type: "Blockchain",
+                title: "MediChain : dossiers médicaux sur blockchain",
+                authors: "Application décentralisée avec accès par rôles (Admin / Hôpital / Médecin / Patient)",
+                venue: "Hardhat · Solidity · Next.js · ethers.js v6 · IPFS"
+            },
+            {
+                type: "GRC",
+                title: "Politique de sécurité de l'information",
+                authors: "Inspirée des modèles de politiques SANS",
+                venue: "LaTeX (pdflatex), sections modulaires, traduction française en cours"
+            }
+        ];
+
         const sections = {
             home: {
                 welcome: `
       .----.
-     /      \\   Yassine Salihi 🇲🇦 
+     /      \\   Yassine Salihi (Yass33n) 🇲🇦
     |  o  o  |  
-    |   ||   |  Cybersecurity Student 
-    |   __   |  @ École Marocaine des Sciences de l'Ingénieur 
-     \\______/
+    |   ||   |  Élève ingénieur en Informatique et Réseaux
+    |   __   |  Cybersécurité, GRC & Cloud/DevSecOps
+     \\______/   @ EMSI Marrakech
       _|__|_      
-     /      \\   <* Learning how machines work and fail *>
+     /      \\   <* Comprendre comment les machines fonctionnent et échouent *>
     |        |  
     |________|  
      |  ||  |   
      |  ||  |   
      '--''--' `,
-                bio: `Yassine Salihi is a Student at ECOLE Marocaine des Sciences de l'Ingénieur (EMSI). He obtained his Bachelor from Ecole Normale Superieure Marrakech (ENS). And he just started...`,
+                bio: `Yassine Salihi (Yass33n) est élève ingénieur en dernière année du cycle Ingénierie Informatique et Réseaux (option CIR) à l'EMSI Marrakech, titulaire d'une licence en informatique de l'ENS Marrakech. Il vient de la cybersécurité et des CTF, avec un intérêt marqué pour la GRC (gouvernance, risques, conformité, audit), le cloud et le DevSecOps, ainsi que pour la sécurité réseau, la sécurité mobile et la rétro-ingénierie.
+
+Il recherche un stage PFE en cybersécurité à partir du 1er février 2027 (4 à 6 mois), avec mobilité sur tout le Maroc.`,
+                experience: [
+                    {
+                        period: "01 juil. – 31 août 2026",
+                        title: "Stagiaire PFE · Sécurité réseau",
+                        org: "Société Régionale Multiservices Marrakech-Safi (SRM-MS)",
+                        points: [
+                            "Conception d'une architecture à trois zones (LAN, LAN2, DMZ) avec politiques de filtrage, Web Filter et File Filter, testés en conditions réelles",
+                            "Simulation d'attaques (nmap, nikto) ayant généré des détections IPS réelles (injections SQL et XSS bloquées)"
+                        ],
+                        tech: "FortiGate-VM64, VMware, Linux (Ubuntu, Debian), nginx, vsftpd, strongSwan"
+                    }
+                ],
                 education: [
                     {
                         period: "2025-2027",
-                        degree: "Cycle d'Ingénieur in Cybersecurity",
+                        degree: "Cycle Ingénieur en Ingénierie Informatique et Réseaux (IIR), option CIR",
                         institution: "EMSI, Marrakech, Maroc",
                         details: [
-                            "PFE : ",
-                            "PFA : Conception et mise en oeuvre d'une architecture de sécurité réseau segmenté avec FortiGate"
+                            "Stage PFE (SRM-MS, juillet-août 2026) : Conception et mise en œuvre d'une architecture de sécurité réseau segmentée avec FortiGate"
                         ]
                     },
                     {
-                        period: "2022-2015",
-                        degree: "Bachelor in Computer Science",
-                        institution: "ENS in Marrakech, Morocco",
+                        period: "2022-2025",
+                        degree: "Licence en informatique",
+                        institution: "ENS Marrakech - Université Cadi Ayyad, Maroc",
                         details: [
-                            "PFE: Conception et mise en oeuvre d'un système intelligent de gestion d'absence.",
+                            "PFE : Conception et mise en œuvre d'un système intelligent de gestion des absences",
+                            "Cours pertinents : Sécurité des réseaux, IA pour la cybersécurité, Systèmes distribués (RMI, CORBA, SOAP), Cryptographie, Cloud Computing"
                         ]
                     }
                 ],
-                awards: [
-                    {
-                        category: "",
-                        title: "",
-                        year: ""
-                    },
-                    {
-                        category: "",
-                        title: "",
-                        year: "",
-                        extra: ""
-                    },
-                    {
-                        category: "",
-                        title: "",
-                        description: ""
-                    }
+                skills: [
+                    { label: "Programmation", items: ["Java", "Python", "PHP", "Bash", "C#"] },
+                    { label: "Logiciels & outils", items: ["FortiGate", "Suricata", "Zabbix", "Docker", "Proxmox", "VMware", "Frida", "JADX / apktool", "nmap", "Git / GitHub", "LaTeX"] },
+                    { label: "Bases de données", items: ["SQL", "NoSQL"] },
+                    { label: "Domaines", items: ["Sécurité réseau", "CTF", "Rétro-ingénierie mobile (Android)", "Machine Learning", "Blockchain", "Cloud Computing", "Linux"] },
+                    { label: "Transversales", items: ["Résolution de problèmes", "Adaptabilité", "Travail d'équipe"] },
+                    { label: "Langues", items: ["Français : courant", "Anglais : professionnel", "Arabe : maternelle"] }
+                ],
+                certifications: [
+                    { title: "Risk Management for Cyber Security Managers", issuer: "Packt (Coursera)" },
+                    { date: "Avr. 2026", title: "Fundamentals of Blockchain Architecture", issuer: "LearnQuest" },
+                    { date: "Avr. 2026", title: "Agile Project Management", issuer: "Google" },
+                    { date: "Janv. 2026", title: "Introduction to Machine Learning", issuer: "Duke University" },
+                    { date: "Nov. 2025", title: "Introduction to Cloud Computing", issuer: "IBM" },
+                    { date: "Nov. 2025", title: "Introduction to NoSQL Databases", issuer: "IBM" },
+                    { date: "Mars 2025", title: "Learn Linux", issuer: "Boot.dev" }
                 ],
                 contacts: [
-                    { icon: 'fa-envelope', text: 'yassine@salihi.com', link: 'mailto:yassinesalihi@tutamail.com' },
-                    { icon: 'fa-globe', text: 'www.yassinesalihi.com', link: 'https://salihi-ens-y.streamlit.app/' },
-                    { icon: 'fa-blog', text: 'blogMaybe', link: '' },
-                    { icon: 'fa-brands fa-github', text: 'github.com/YassineSalihi', link: 'https://github.com/LYassineSalih' },
-                    { icon: 'fa-brands fa-x-twitter', text: 'https://x.com/Salihi_Yas', link: 'https://x.com/Salihi_Yas' }
+                    { icon: 'fa-envelope', text: 'salihiy0@gmail.com', link: 'mailto:salihiy0@gmail.com' },
+                    { icon: 'fa-phone', text: '+212 777-402715', link: 'tel:+212777402715' },
+                    { icon: 'fa-location-dot', text: 'Marrakech · mobile partout au Maroc' },
+                    { icon: 'fa-brands fa-linkedin', text: 'linkedin.com/in/yassine-salihi', link: 'https://www.linkedin.com/in/yassine-salihi/' },
+                    { icon: 'fa-brands fa-github', text: 'github.com/YassineSalihi', link: 'https://github.com/YassineSalihi' },
+                    { icon: 'fa-brands fa-x-twitter', text: 'x.com/Salihi_Yas', link: 'https://x.com/Salihi_Yas' }
                 ]
             },
-            research: {
+            projets: {
                 interests: [
-                    "Malware Analysis",
-                    "Operating Systems",
-                    "Software Security",
-                    "Distributed Systems",
+                    "Sécurité réseau (FortiGate, IDS/IPS, VPN)",
+                    "Sécurité mobile et rétro-ingénierie",
+                    "Analyse de malwares",
+                    "Sécurité web (PHP, CSRF, upload sécurisé)",
+                    "IA pour la cybersécurité",
+                    "Cryptographie appliquée",
                     "Blockchain",
-                    "Applied Cryptography"
-                ],
-                service: {
-                    committees: [
-                        "No Committees yet..."
-                    ],
-                    reviewer: [
-                        "No reviewer yet..."
-                    ]
-                },
-                publications: [
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                        
-                    },
-                    {
-                    }
-                ],
-                selected_publications: [
-                    {
-                    },
-                    {
-                    },
-                    {
-                    },
-                    {
-                    },          
+                    "Systèmes distribués",
+                    "Cloud et DevSecOps",
+                    "Gouvernance, risques, conformité et audit (GRC)",
+                    "Systèmes d'exploitation"
                 ]
             },
             initiatives: {
                 projects: [
                     {
-                        title: "The Missing Semester (Moroccan Edition)",
-                        description: "Bridging the gap between theoretical computer science courses and practical applications in Moroccan universities."
+                        title: "EMSI Cyber Bootcamp Challenge : Exercice Kasbah",
+                        role: "Équipe G2 · Risque / Conformité",
+                        org: "EMSI, Marrakech (septembre 2026)",
+                        description: "Exercice de gestion de crise en cybersécurité et infrastructures réseaux pour les étudiants de 5e année, avec quatre villes EMSI en compétition."
                     },
                     {
-                        title: "Competitive Programming",
-                        role: "Head of Scientific Committee",
-                        org: "Moroccan Association for Computing Sciences",
-                        description: "Leading initiatives to advance computing sciences in Morocco through academic and professional development programs."
+                        title: "Homelab : Linux, virtualisation et réseau",
+                        role: "Projet personnel",
+                        org: "Proxmox · Containerlab · Docker",
+                        description: "Environnement d'expérimentation personnel : Pi-hole dans un conteneur LXC sur Proxmox, lab VPN SoftEther avec Containerlab (filtrage nftables / iptables) et tableau de bord de supervision Zabbix."
+                    },
+                    {
+                        title: "Lecture technique",
+                        role: "Centre d'intérêt",
+                        org: "Cybersécurité · Linux · systèmes",
+                        description: "Veille et lecture technique régulières sur la sécurité, Linux et la virtualisation."
+                    },
+                    {
+                        title: "Jiu-jitsu",
+                        role: "Pratiquant",
+                        org: "Club MBT Marrakech",
+                        description: "Pratique régulière du jiu-jitsu : discipline, persévérance et esprit d'équipe."
                     }
                 ]
             }
@@ -538,37 +271,55 @@
 
         function createPrompt(command = '') {
             return `<div class="command-line">
-                <span class="prompt">user@<span>salihi</span>:~$ ${command}</span>
+                <span class="prompt">yassine@<span>portfolio</span>:~$ ${command}</span>
             </div>`;
+        }
+
+        function projectCard(p) {
+            return `
+                <div class="publication-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <div class="publication-year">${p.year ? `[${p.year}]` : ''}</div>
+                        <div class="tag">${p.type}</div>
+                    </div>
+                    <div class="publication-title">${p.title}</div>
+                    <div class="publication-authors">${p.authors}</div>
+                    <div class="publication-venue">${p.venue}</div>
+                    ${p.link ? `<div style="margin-top:8px"><a href="${p.link}" target="_blank" rel="noopener" style="color:var(--text-blue)">↗ Code source (GitHub)</a></div>` : ''}
+                </div>`;
         }
 
         function renderHome() {
             const content = document.getElementById('terminal-content');
             content.innerHTML = `
-                ${createPrompt('cat welcome.txt')}
+                ${createPrompt('cat bienvenue.txt')}
                 <div class="output">
                     <pre class="ascii-art">${sections.home.welcome}</pre>
                 </div>
 
-                ${createPrompt('cat about.txt')}
+                ${createPrompt('cat a-propos.txt')}
                 <div class="output">${sections.home.bio}</div>
 
-                ${createPrompt('cat research/selected.txt')}
-                <div class="section-header">📃 Selected Publications</div>
-                ${sections.research.selected_publications.map(pub => `
+                ${createPrompt('cat experience.txt')}
+                <div class="section-header">💼 Expérience professionnelle</div>
+                ${sections.home.experience.map(x => `
                     <div class="publication-card">
-                        <div style="display:flex;justify-content:space-between;align-items:center">
-                            <div class="publication-year">[${pub.year}]</div>
-                            <div class="tag">${pub.type}</div>
+                        <div class="publication-year">[${x.period}]</div>
+                        <div class="publication-title">${x.title}</div>
+                        <div class="publication-authors">${x.org}</div>
+                        <div class="publication-venue">
+                            ${x.points.map(pt => `• ${pt}`).join('<br>')}
+                            <br>Technologies : ${x.tech}
                         </div>
-                        <div class="publication-title">${pub.title}</div>
-                        <div class="publication-authors">${pub.authors}</div>
-                        <div class="publication-venue">${pub.venue}</div>
                     </div>
                 `).join('')}
 
-                ${createPrompt('cat education.txt')}
-                <div class="section-header">📚 Education History</div>
+                ${createPrompt('cat projets/selection.txt')}
+                <div class="section-header">🚀 Projets sélectionnés</div>
+                ${projects.slice(0, 4).map(projectCard).join('')}
+
+                ${createPrompt('cat formation.txt')}
+                <div class="section-header">📚 Parcours académique</div>
                 ${sections.home.education.map(edu => `
                     <div class="publication-card">
                         <div class="publication-year">[${edu.period}]</div>
@@ -580,79 +331,62 @@
                     </div>
                 `).join('')}
 
-                ${createPrompt('cat awards.txt')}
-                <div class="section-header">🏆 Honors & Awards</div>
-                ${sections.home.awards.map(award => `
+                ${createPrompt('cat competences.txt')}
+                <div class="section-header">🛠️ Compétences et langues</div>
+                ${sections.home.skills.map(s => `
                     <div class="publication-card">
-                        <div class="publication-year">[${award.category}]</div>
-                        <div class="publication-title">${award.title}</div>
-                        ${award.year ? `<div class="publication-venue">${award.year}</div>` : ''}
-                        ${award.extra ? `<div class="publication-authors">${award.extra}</div>` : ''}
-                        ${award.description ? `<div class="publication-authors">${award.description}</div>` : ''}
+                        <div class="publication-year">${s.label}</div>
+                        <div>${s.items.map(i => `<span class="tag">${i}</span>`).join('')}</div>
                     </div>
                 `).join('')}
 
-                ${createPrompt('cat social.txt')}
+                ${createPrompt('cat certificats.txt')}
+                <div class="section-header">🏅 Certifications</div>
+                ${sections.home.certifications.map(c => `
+                    <div class="publication-card">
+                        ${c.date ? `<div class="publication-year">[${c.date}]</div>` : ''}
+                        <div class="publication-title">${c.title}</div>
+                        <div class="publication-venue">${c.issuer}</div>
+                    </div>
+                `).join('')}
+
+                ${createPrompt('cat contact.txt')}
                 <div class="contact-grid">
                     ${sections.home.contacts.map(contact => `
                         <div class="contact-item">
                             <i class="fas ${contact.icon}"></i>
-                            <a href="${contact.link}" target="_blank">${contact.text}</a>
+                            ${contact.link ? `<a href="${contact.link}" target="_blank" rel="noopener">${contact.text}</a>` : `<span>${contact.text}</span>`}
                         </div>
                     `).join('')}
                 </div>
             `;
         }
 
-        function renderResearch() {
+        function renderProjets() {
             const content = document.getElementById('terminal-content');
             content.innerHTML = `
-                ${createPrompt('cat interests.txt')}
-                <div class="section-header">🔬 Research Interests</div>
+                ${createPrompt('cat centres-interet.txt')}
+                <div class="section-header">🔬 Centres d'intérêt</div>
                 <div class="publication-card">
-                    ${sections.research.interests.map(interest => `
+                    ${sections.projets.interests.map(interest => `
                         <div class="publication-venue">• ${interest}</div>
                     `).join('')}
                 </div>
 
-                ${createPrompt('cat services.txt')}
-                <div class="section-header">🎓 Academic Service</div>
-                <div class="publication-card">
-                    <div class="publication-year">[Program Committees]</div>
-                    ${sections.research.service.committees.map(committee => `
-                        <div class="service-item">${committee}</div>
-                    `).join('')}
-                    
-                    <div class="publication-year" style="margin-top:15px">[Journal/Conference Reviewer]</div>
-                    ${sections.research.service.reviewer.map(review => `
-                        <div class="service-item">${review}</div>
-                    `).join('')}
-                </div>
-
-                ${createPrompt('cat publications.txt')}
-                <div class="section-header">📚 Publications</div>
-                ${sections.research.publications.map(pub => `
-                    <div class="publication-card">
-                        <div style="display:flex;justify-content:space-between;align-items:center">
-                            <div class="publication-year">[${pub.year}]</div>
-                            <div class="tag">${pub.type}</div>
-                        </div>
-                        <div class="publication-title">${pub.title}</div>
-                        <div class="publication-authors">${pub.authors}</div>
-                        <div class="publication-venue">${pub.venue}</div>
-                    </div>
-                `).join('')}
+                ${createPrompt('ls projets/')}
+                <div class="section-header">🧪 Projets et travaux techniques</div>
+                ${projects.map(projectCard).join('')}
             `;
         }
 
         function renderInitiatives() {
             const content = document.getElementById('terminal-content');
             content.innerHTML = `
-                ${createPrompt('cat projects.txt')}
-                <div class="section-header">🚀 Projects & Initiatives</div>
+                ${createPrompt('cat initiatives.txt')}
+                <div class="section-header">🚀 Projets et initiatives</div>
                 ${sections.initiatives.projects.map(project => `
                     <div class="publication-card">
-                        <div class="publication-year">[PROJECT]</div>
+                        <div class="publication-year">[INITIATIVE]</div>
                         <div class="publication-title">${project.title}</div>
                         ${project.role ? `<div class="publication-authors">${project.role} - ${project.org}</div>` : ''}
                         <div class="publication-venue">${project.description}</div>
@@ -661,24 +395,12 @@
             `;
         }
 
-        function switchTab(tab) {
+        function switchTab(tab, el) {
             document.querySelectorAll('.terminal-tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
-
-            switch (tab) {
-                case 'home':
-                    renderHome();
-                    break;
-                case 'research':
-                    renderResearch();
-                    break;
-                case 'initiatives':
-                    renderInitiatives();
-                    break;
-            }
+            el.classList.add('active');
+            ({ home: renderHome, projets: renderProjets, initiatives: renderInitiatives })[tab]();
         }
 
-        // Initial render
         renderHome();
     </script>
 </body>

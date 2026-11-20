@@ -1,3 +1,8 @@
-# Lekssays.com Terminal
+# YassineSalihi's Terminal
 
-A Terminal-like web application written in JS and deployed in my personal website lekssays.com.
+This is my quick introduction to me.
+A blog will be created later on.
+
+> [!NOTE]
+> I only modified it
+> The original author is **Ahmed Lekssays**
